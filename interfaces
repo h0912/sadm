@@ -1,0 +1,26 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+#allow-hotplug eth0
+#iface eth0 inet dhcp
+
+#The first ethernet interface
+allow-hotplug eth1
+#auto vlan10
+iface eth1 inet static
+	address 10.10.10.10
+	netmask 255.255.255.0
+	network	10.10.10.0
+	broadcast 10.10.10.255
+#vlan-raw-device eth0
+
+#The second ethernet interface
+allow-hotplug eth0
+#auto vlan20
+iface eth0 inet dhcp
+vlan-raw-device eth0
